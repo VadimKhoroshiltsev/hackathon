@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "nodemon -w server -w resolve --exec \"babel-node ./server\"",
     "build:client": "next build",
-    "build:server": "webpack --config webpack.server.config.js",
+    "build:server": "webpack --config config/webpack.server.config.js",
     "build:static": "cp -r ./static ./.next/dist/static",
     "build": "npm run build:client && npm run build:static && npm run build:server",
     "start": "node .next/dist/server/server.js",
     "prestart": "npm run -s build",
     "lint": "eslint ./",
-    "lint:fix": "eslint ./ --fix",
+    "lint:fix": "eslint ./ --fix"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,12 @@
   },
   "homepage": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "classnames": "^2.2.5",
+    "cookie-parser": "^1.4.3",
     "css-loader": "^0.28.2",
     "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
     "next": "^2.4.0",
     "next-redux-wrapper": "^1.1.2",
     "react": "^15.5.4",

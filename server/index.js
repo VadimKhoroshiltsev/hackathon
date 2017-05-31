@@ -4,6 +4,7 @@ import http from 'http';
 import socketIO from 'socket.io';
 import uuid from 'uuid';
 
+import prepareAuth, { auth } from './auth';
 import resolve from '../resolve';
 
 import projection from '../resolve/projections';
@@ -19,9 +20,10 @@ app
     const server = http.Server(express);
     const io = socketIO(server);
 
+    prepareAuth(express);
     express.use(createExpress.static('static'));
 
-    express.get('/:filter?', (req, res) => {
+    express.get('/:filter?', auth, (req, res) => {
       const actualPage = '/';
       const queryParams = { filter: req.params.filter };
 
