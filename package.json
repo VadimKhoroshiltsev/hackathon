@@ -10,7 +10,6 @@
     "build:static": "cp -r ./static ./.next/dist/static",
     "build": "npm run build:client && npm run build:static && npm run build:server",
     "start": "node .next/dist/server/server.js",
-    "prestart": "npm run -s build",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix"
   },
